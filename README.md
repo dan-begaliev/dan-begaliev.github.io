@@ -1,1 +1,1 @@
-# fastway.github.io
+# dan-begaliev.github.io
