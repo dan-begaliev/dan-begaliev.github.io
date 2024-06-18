@@ -1,0 +1,1 @@
+# fastway.github.io
