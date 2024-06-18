@@ -6,12 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const practicesBtn = document.getElementById("btn-practices");
   const tabContent = document.getElementById("tab-content");
 
-  const removeActive = function () {
-    featuresBtn.classList.remove("active");
-    practicesBtn.classList.remove("active");
-    capabilitiesBtn.classList.remove("active");
-  };
-
   const features = [
     //features
     [
@@ -40,16 +34,41 @@ document.addEventListener("DOMContentLoaded", function () {
     ],
   ];
 
+  // Function to remove active class from all buttons
+  const removeActive = function () {
+    featuresBtn.classList.remove("active");
+    capabilitiesBtn.classList.remove("active");
+    practicesBtn.classList.remove("active");
+  };
+
+  // Event listener for Features button
   featuresBtn.addEventListener("click", function () {
     removeActive();
     featuresBtn.classList.add("active");
+    displayContent(0); // Display features content
   });
-  featuresBtn.addEventListener("click", function () {
+
+  // Event listener for Capabilities button
+  capabilitiesBtn.addEventListener("click", function () {
     removeActive();
     capabilitiesBtn.classList.add("active");
+    displayContent(1); // Display capabilities content
   });
-  featuresBtn.addEventListener("click", function () {
+
+  // Event listener for Practices button
+  practicesBtn.addEventListener("click", function () {
     removeActive();
     practicesBtn.classList.add("active");
+    displayContent(2); // Display practices content
   });
+
+  // Function to display content based on index
+  function displayContent(index) {
+    let content = "<ul>";
+    features[index].forEach(function (item) {
+      content += `<li>${item}</li>`;
+    });
+    content += "</ul>";
+    tabContent.innerHTML = content;
+  }
 });
